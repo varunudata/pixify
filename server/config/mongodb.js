@@ -3,7 +3,7 @@ const connectDB = async () => {
   mongoose.connection.on("connected", () => {
     console.log("DataBase is Connected");
   });
-  await mongoose.connect(`${process.env.MONGOB_URI}/imagify`);
+  await mongoose.connect(`${process.env.MONGOB_URI}/pixify`);
 };
 
 export default connectDB;
