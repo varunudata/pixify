@@ -86,6 +86,7 @@ export const generateImage = async (req, res) => {
         prompt: prompt,
       }),
     });
+    console.log(response);
 
     if (!response.ok) {
       throw new Error("Failed to generate image from ClipDrop API");

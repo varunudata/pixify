@@ -4,7 +4,6 @@ import axios from 'axios'
 import { useNavigate } from "react-router-dom";
 
 export const AppContext = createContext()
-
 const AppContextProvider = (props) => {
     const[user, setUser] = useState(false); 
     const[showLogin, setShowLogin] = useState(false)
@@ -34,7 +33,7 @@ const AppContextProvider = (props) => {
                 loadCreditsData()
                 return data.resultImage
             } else{
-                toast.error(data.message, "ugbhin")
+                toast.error(data.message)
                 loadCreditsData()
                 if(data.creditBalance === 0){
                     navigate('/buycredit')
@@ -48,15 +47,13 @@ const AppContextProvider = (props) => {
         localStorage.removeItem('token')
         setToken('')
         setUser(null)
-    } 
+    }
 
     useEffect(() => {
         if(token){
             loadCreditsData()
         }
     },[token])
-
-
 
     const values = {
         user, setUser, showLogin, setShowLogin, backendUrl, token, setToken, credit, setCredit, loadCreditsData, logout, generateImage
@@ -69,3 +66,4 @@ const AppContextProvider = (props) => {
 }
 
 export default AppContextProvider 
+

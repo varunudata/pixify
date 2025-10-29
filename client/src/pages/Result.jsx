@@ -25,7 +25,11 @@ const Result = () => {
     <form onSubmit={onSubmitHandler} className='flex flex-col min-h-[90vh] justify-center items-center'>
         <div className='relative'>
             <img src={image} alt="" className='max-w-sm rounded'/>
-            {loading && <span className='absolute bottom-0 left-0 h-1 bg-blue-500 w-full transition-all duration-[10s]'></span>}
+            <span
+            className={`absolute bottom-0 left-0 h-1 bg-blue-500 duration-[5s] ${
+                loading ? "w-full transition-all" : "w-0 transition-none"
+            }`}
+            />
             {loading && <p>Loading ...</p>}
         </div>
         {!isImageLoaded && <div className='flex w-full max-w-xl bg-neutral-500 text-white text-sm p-0.5 mt-10 rounded-full'>
