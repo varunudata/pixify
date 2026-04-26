@@ -19,9 +19,20 @@ jobs:
           username: ec2-user
           key: ${{ secrets.EC2_SSH_KEY }}
           script: |
-            cd pixify/server
-            git pull
-            docker stop $(docker ps -q) || true
-            docker rm $(docker ps -aq) || true
-            docker build -t pixify-backend .
-            docker run -d -p 4005:4005 --restart always pixify-backend
+            script: |
+              cd pixify
+
+              git pull
+
+              cd server
+              docker stop $(docker ps -q) || true
+              docker rm $(docker ps -aq) || true
+              docker build -t pixify-backend .
+              docker run -d -p 4005:4005 --restart always pixify-backend
+
+              cd ../client
+              npm install
+              npm run build
+              sudo rm -rf /usr/share/nginx/html/*
+              sudo cp -r dist/* /usr/share/nginx/html/
+              sudo systemctl restart nginx
