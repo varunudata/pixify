@@ -1,7 +1,7 @@
 name: Deploy Pixify Backend
 
 on:
-  Push:
+  push:
     branches: -main
 
 jobs:
