@@ -18,7 +18,7 @@ const GenerateBtn = () => {
         <h1 className='text-2xl md:text-3xl lg:text-4xl mt-4 font-semibold text-neutral-800 py-6 md:py-16'>See the Magic. Try now</h1>
 
         <button onClick={onClickHandler} className='sm:text-lg text-white bg-black w-auto mt-8 px-12 py-3 flex items-center gap-2 rounded-full m-auto hover:scale-105 transition-all duration-500 cursor-pointer'>
-            Generate first 5 Images for free
+            Generate Images
             <img className='h-6' src={assets.star_group} alt=""/>
         </button>
     </div>

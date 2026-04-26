@@ -23,7 +23,7 @@ const Header = () => {
         <p className='text-center max-w-xl mx-auto mt-5'>Unleash your creativity with AI. Yurn your Imagination into visual art in seconds - Just type and watch the magic happen.</p>
 
         <button onClick={onClickHandler} className='sm:text-lg text-white bg-black w-auto mt-8 px-12 py-3 flex items-center gap-2 rounded-full m-auto hover:scale-105 transition-all duration-500 cursor-pointer'>
-            Generate 5 Images for free
+            Generate Images
             <img className='h-6' src={assets.star_group} alt="" />
         </button>
         <div className='flex flex-wrap justify-center mt-16 gap-3'>
