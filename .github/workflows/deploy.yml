@@ -1,0 +1,26 @@
+name: Deploy Pixify Backend
+
+on:
+  Push:
+    branches: -main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+      - name: SSH into ec2 and Deploy
+        uses: appleboy/ssh-action@0.1.10
+        with:
+          host: ${{ secrets.EC2_HOST }}
+          username: ec2-user
+          key: ${{ secrets.EC2_SSH_KEY }}
+          script: |
+            cd pixify/server
+            git pull
+            docker stop $(docker ps -q) || true
+            docker rm $(docker ps -aq) || true
+            docker build -t pixify-backend .
+            docker run -d -p 4005:4005 --restart always pixify-backend
