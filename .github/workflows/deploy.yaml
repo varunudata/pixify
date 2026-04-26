@@ -2,7 +2,8 @@ name: Deploy Pixify Backend
 
 on:
   push:
-    branches: -main
+    branches:
+      - main
 
 jobs:
   deploy:
@@ -12,7 +13,7 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v3
       - name: SSH into ec2 and Deploy
-        uses: appleboy/ssh-action@0.1.10
+        uses: appleboy/ssh-action@v0.1.10
         with:
           host: ${{ secrets.EC2_HOST }}
           username: ec2-user
