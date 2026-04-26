@@ -46,7 +46,7 @@ const loginUser = async (req, res) => {
     } else {
       return res.json({
         success: false,
-        message: "Invalid Credentials for this user",
+        message: "Invalid Credentials of this user",
       });
     }
   } catch (error) {
